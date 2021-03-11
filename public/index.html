@@ -1,0 +1,514 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="styles.css" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <title>WPOven:Managed Wordpress Hosting</title>
+    <style>
+      #menu-toggle:checked + #menu {
+        display: block;
+      }
+  </style>
+</head>
+<body class="antialiased bg-white font-body">
+  <header class="px-20 bg-headercolor flex flex-wrap items-center lg:py-0 py-5 md:py-2 sticky top-0 z-10">
+    <div class="flex-1 flex justify-between items-center pl-0 xl:pl-12">
+      <a href="#">
+        <img class="inline w-3/6 lg:w-3/6 xl:w-4/6 xl:pt-4 pt-2" src="images/logo-1.png" alt="Logo">
+    </a>
+  </div>
+
+    <label for="menu-toggle" class="pointer-cursor lg:hidden block"><svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><title>menu</title><path class="text-white" d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg></label>
+  <input class="hidden" type="checkbox" id="menu-toggle" />
+
+  <div class="hidden lg:flex lg:items-center lg:w-auto w-full md:p-5" id="menu">
+    <nav>
+      <ul class="lg:flex items-center justify-between text-base text-white pt-4 pr-10 lg:pt-0">
+        <li><a class="lg:p-6 py-3 px-0 block" href="#">Plans & Features</a></li>
+        <li><a class="lg:p-6 py-3 px-0 block" href="#">Why Us?</a></li>
+        <li><a class="lg:p-6 py-3 px-0 block" href="#">Contact</a></li>
+        <li><a class="lg:p-6 py-3 px-0 block lg:mb-0 mb-2" href="#">Login</a></li>
+      </ul>
+    </nav>
+   <a href="#" class="border border-white rounded-lg font-bold text-white px-4 py-2 transition duration-300 ease-in-out hover:bg-yellow-500 hover:text-white hover:border-opacity-0 mr-6">
+    SignUp
+</a>
+
+  </div>
+
+  </header>
+ 
+  <div class="px-0 lg:px-20 flex flex-wrap lg:py-0 py-2">
+    <div class="mx-auto p-16 w-screen lg:w-8/12 sm:w-12/12 items-center">
+      <h1 class="text-4xl font-bold mb-4">Best WordPress Cloudflare plugin settings for faster sites</h1>
+      <h2 class="font-medium text-sm text-gray-500 mb-4 uppercase tracking-wide">By Vikrant Datta | 13 January, 2021</h2>
+      <img class="inline" src="images/wordpress_n_cloudflare.png" alt="feature image">
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">As a Cloudflare partner, we recommend Cloudflare to be used as a DNS , Firewall and a CDN for the sites we host at WPOven. This guide is a small reference on settings up WordPress Cloudflare Plugin Perfectly and common questions surrounding it. It especially covers how to use Cloudflare in WordPress and how to utilize its free functionality to help your site improve speed and security. This guide does not require your site to be hosted at WPOven, so it applies to everyone who uses WordPress and is interested in using Cloudflare.</p>
+
+      <h3 class="text-3xl font-medium mb-2 pt-4">Using Cloudflare in WordPress</h3>
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">Setting up Cloudflare for WordPress is quite simple and requires nothing more than an email and access to your Domain registrar settings to change the name server, so Cloudflare is used as the default Domain Name Server. We assume that you already have a WordPress website up and running at the moment, if not, follow this guide on how to get started with Cloudflare for WordPress.</p>
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4"><span class="list-disc font-medium">1. Step 1:</span> Signup with Cloudflare, Visit the signup page and use your email to signup and verify it, then log into Cloudflare so that we get started with moving our DNS over to Cloudflare so that we can starting using it with our website.</p>
+
+      <img class="inline" src="images/download-768x369.png" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4"><span class="list-disc font-medium">2. Step 2:</span> Once signed up, you will see an add site form, here we will add our site lets say it is weblisty.com. Click Add Site, and then this will take you to the plan selection –</p>
+
+      <img class="inline" src="images/cloudflare_add_site-768x289.png" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">Select the Free plan for now, which we will cover in this Guide in detail. This is also sufficient for many of the common types of sites we see users run.</p>
+
+      <img class="inline" src="images/cloudflare_free_plan-768x271.png" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">Cloudflare will then take some time to import the existing Name Server entries, this process can sometimes take a bit of time, so have patience.</p>
+
+      <img class="inline" src="images/cloudflare_scannig-768x267.png" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">Once done, expect to see a list of name server entries. You may change them as required by your setup, but we will let them be as they look fine for now.</p>
+
+      <img class="inline" src="images/cloudflare_ns_records-768x280.png" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">Cloudflare will ask you to change the name server records on your domain registrar so that it can take over the functionality of a DNS server and start acting as the frontend to your website.</p>
+
+      <img class="inline" src="images/cloudflare_nameservers.png" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4"><span class="list-disc font-medium">3. Step 3:</span> The final step is to change the default nameserver and use Cloudflare provided name servers. This will be different for each Domain Registrar. Cloudflare will next run you through a small Quick Start Guide, and we will run through the defaults as they are sufficient and finish the setup.</p>
+
+      <img class="inline" src="images/cloudflare_default-768x421.png" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4"><span class="list-disc font-medium">4. Step 4:</span> If all went well you will arrive at a screen something like given below and we can get started with optimizing Cloudflare for our WordPress website.</p>
+
+      <img class="inline" src="images/cloudflare_setup_completed-768x343.png" alt="feature image">
+
+      <h3 class="text-3xl font-medium mb-2 pt-4">Cloudflare WordPress plugin</h3>
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">As you will be using Cloudflare to cache your static assets or even dynamically generated ones, it is best to install the WordPress plugin provided by Cloudflare. This allows you to clear the Cloudflare cache easily in case you change make any updates to your site, it is also needed if you are using the Automatic Platform optimization (APO) feature provided.
+
+To get started with the install it is quite easy , visit the Add new plugin section of WordPress and search for Cloudflare, once the plugin is found, simply click install then activate the plugin, the only configuration required for the plugin is to connect it to Cloudflare so that our site can notify it about the changes.
+
+To connect the site to our Cloudflare plugin we will use the Token Method as we do not wish to share global API so use the following settings to create the custom token –</p>
+
+      <img class="inline" src="images/cloudflare_wordpress_token-768x707.png" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">Once the token is created , copy the token and active the plugin you will see the following page –</p>
+
+      <img class="inline" src="images/cloudflare_plugin_home-768x363.png" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">Most settings will be already configured for best use. </p>
+
+
+      <h3 class="text-3xl font-medium mb-2 pt-4">Cloudflare Domain Name Server (DNS)</h3>
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">This is the core feature of Cloudflare offers, where they will host your DNS and in doing so will also enable the reverse proxy on your site (this can be disabled if required) and offer the various services and enhancements. If you have set up Cloudflare like above, it will import your existing NS records by default and you can easily add more if required. Cloudflare also comes in very handy to host DNS if your domain registrar does not provide any options to set advanced NS records or provides limited functionality.</p>
+
+<p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">DNS records are instructions provided by DNS servers that contain information on how to process a domain or a hostname. There are various types of DNS records that are used by different services. In our case, we are mainly interested in the Address name commonly known as A name and the Canonical name commonly known as the C Name.</p>
+
+<p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">
+	<span class="list-disc font-medium">A Name:</span> This record tells how the Domain name maps to the IP Address of the server</p>
+	<p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">
+	<span class="list-disc font-medium">C Name:</span> tells how one domain points to another domain.</p>
+
+	<p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">Listed below are some common domain name records –</p>
+
+	<p class="text-md font-light mb-2 w-auto text-justify pr-4 pt-4">http://www.electricmonk.org.uk/wp-content/uploads/2013/06/dns_records.bmp ( Convert it into table )</p>
+
+	<p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">For our current requirements we will only set up the A name and point the www C name to the IP of our server –</p>
+
+
+
+      <img class="inline" src="images/cloudflare_dns_default-768x196.png" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">As the default setup is sufficient for most users, we will not cover this in detail, for more information you can visit the Cloudflare help section.</p>
+
+      <h3 class="text-3xl font-medium mb-2 pt-4">Cloudflare Content Delivery Network (CDN)</h3>
+
+      <img class="inline" src="images/cdn-768x384.jpg" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">A content delivery network (CDN) refers to a geographically distributed group of servers that work together to provide access to your site based on the user’s location. Cloudflare CDN is provided as a free service to sites whose DNS is hosted on Cloudflare. By default all static assets are cached, and this helps improve load time for your site through the main page is still fetched from your server ( you can change this behavior as we will see later on ).
+
+Cloudflare then serves these static assets from the data center nearest to the user, reducing loading time and decreasing bandwidth and server load on our server. To enable CDN on your site, the only thing required is that Cloudflare is enabled on your site and it is not in bypass mode, it will show an Orange cloud in your NS Record if it’s behind Cloudflare. As a WordPress user you also have an option of using other CDN’s also, we have written about it in the past, which you can read here.</p>
+
+	<p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">Here is a quick comparison of loading time with CDN enabled and CDN for a Vanilla eCommerce site currently, there are no optimizations applied ( Since the site is hosted in a Dallas Datacenter, we did the test from Sydney ) –</p>
+
+      <img class="inline" src="images/gtmetric_speedup_1-768x464.png" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">As you can see the site is not doing too great by default ( we are using Gtmetrix ), Now we will enable the CDN after 2 – 3 refresh, we get the following ( Things have improved )</p>
+
+      <img class="inline" src="images/gtmetric_speedup_2-768x452.png" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">If you wish to go even further and mainly run a static HTML site, you can improve things further and have Cloudflare completely cache your site and have it load really fast the world over. To do this, you will need to add a few page rules in Cloudflare, This will make Cloudflare even cache the main pages and reduce the Time to first Byte (TTFB) even further.</p>
+
+      <img class="inline" src="images/pagerule_fullcache-768x345.png" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">As page rules will not allow you to work on your site directly, you will need to setup a local hosts file entry on your machine, which points your domain directly to your server. You can read about setting these host records. This will also require a Cloudflare plugin installed on your site to clear cache when you have made the changes. You can download it here or using the internal WordPress Add new plugins search.</p>
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">Here is a quick comparison with the rule enabled and load time before and after the rules were put in place. You can think of this as your own free Cloudflare APO alternative.</p>
+
+      <img class="inline" src="images/gtmetric_speedup_3-768x451.png" alt="feature image">
+
+      <img class="inline" src="images/keycdn_global_ping.png" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">If you wish to take the numbers even further up with near 100 ratings on GTMetrix you can explore the nitro boost feature on our WPOhub plugin which delays the Javascript load and increases both Pagespeed and GTMetrix performance. </p>
+
+      <h3 class="text-3xl font-medium mb-2 pt-4">Cloudflare SSL</h3>
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">Another great feature of Cloudflare is the free SSL offered to all websites hosted through it. This feature ensures that communication between your site and the clients is secure and cannot be snooped. Cloudflare supports multiple ways on how to set it up. Cloudflare supports three common ways –</p>
+
+      <img class="inline" src="images/cloudflare_ssl_setup-768x320.png" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">We recommend the Full or the Strict mode, The default settings are usually fine for most setups, but if required, you can Tweak the following settings –</p>
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4"><span class="list-disc font-medium">1.</span> Under Edge Certificates, Enable “Always Use HTTPS” , this will not allow unsecured access to your site.</p>
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4"><span class="list-disc font-medium">2.</span> Similarly, set “Minimum TLS Version” to 1.2 as below that it is not considered secured, also if your compliance standard requires it.</p>
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4"><span class="list-disc font-medium">3.</span> Similarly, enable “Automatic HTTPS Rewrites” this will make sure you do not get a mixed content warning when you migrate from a http to a https site.</p>
+
+      <img class="inline" src="images/cloudflare_ssl_report-768x478.png" alt="feature image">
+
+      <h3 class="text-3xl font-medium mb-2 pt-4">Cloudflare Automatic Platform Optimization (APO)</h3>
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">By default Cloudflare only caches static assets for the sites and can cache pages if you require but this entails some extra steps to update and work with the site. By Defaults, Cloudflare also has this special setup with WordPress where if you use the provided WordPress plugin, even the pages are cached and does not require any special setups. With APO, all assets, including the pages, are moved to the edge nodes, reducing the TTFB for the site globally, giving a more positive experience overall. This functionality available as a 5$ paid addon on the free plan and requires an additional Cloudflare WordPress Plugin to be added to the site.</p>
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">As this is a paid addon we will not be covering it here at the moment.</p>
+
+      <h3 class="text-3xl font-medium mb-2 pt-4">WordPress Firewall using Cloudflare</h3>
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">Another very useful feature of Cloudflare is the Web Application Firewall it offers on all sites. For a simple WordPress Firewall, we recommend at least 2 rules which will help you protect against content brute force attacks against the xmlrpc.php and wp-login.php , If you are using a strong password, you should not be worried, but a lot of requests from bots do cause excessive CPU and resource usage.</p>
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">To get started we will first whitelist our own IP address. Under Firewall > Tools You can add your own IP ( google “whats my ip” to know your public ip), if you have a dynamic IP you can put in a IP range similar to the IP you are assigned at different times.</p>
+
+      <img class="inline" src="images/cloudflare_ip_whitelist-768x489.png" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">Next we go and add a few page rules to address the most common issues we usually see with a standard WordPress Site.</p>
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">1. Block access to the wp-login.php, this page is used to login into your site and is a common endpoint for attackers to perform brute-force attacks on, so we will create a rule to check if the browser is being used and also perform additional checks to make sure it is not a bot.
+Create a Page rules like given below and deploy –</p>
+
+      <img class="inline" src="images/cloudflare_wp_login-768x345.png" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">You can also use a plugin like to hide <a class="underline" href="https://wordpress.org/plugins/wps-hide-login/">WordPress login</a>  to avoid adding this rule. </p>
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">2.  We will also restrict access to xmlrpc.php, so it is also not used for brute-force attacks on the site, So in Firewall under firewall Rules you can create the following rule, we will block all access other than to JetPack ( You can find a list of JetPack IP range on this page )</p>
+
+      <img class="inline" src="images/cloudflare_firewall_rules-768x517.png" alt="feature image">
+
+      <p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">You can also use the expression below and build the rule –</p>
+
+     <div class="box-border h-42 w-auto p-4 border border-gray-500">
+  		<p class="text-sm font-medium mb-2 w-auto pr-4">(http.request.uri contains "xmlrpc.php" and not ip.src in {192.0.64.0/24 192.0.65.0/24 192.0.66.0/24 192.0.67.0/24 192.0.68.0/24 192.0.69.0/24 192.0.70.0/24 192.0.71.0/24 192.0.72.0/24 192.0.73.0/24 192.0.74.0/24 192.0.75.0/24 192.0.76.0/24 192.0.77.0/24 192.0.78.0/24 192.0.79.0/24 192.0.80.0/24 192.0.81.0/24 192.0.82.0/24 192.0.83.0/24 192.0.84.0/24 192.0.85.0/24 192.0.86.0/24 192.0.87.0/24 192.0.88.0/24 192.0.89.0/24 192.0.90.0/24 192.0.91.0/24 192.0.92.0/24 192.0.93.0/24 192.0.94.0/24 192.0.95.0/24 192.0.96.0/24 192.0.97.0/24 192.0.98.0/24 192.0.99.0/24 192.0.100.0/24 192.0.101.0/24 192.0.102.0/24 192.0.103.0/24 192.0.104.0/24 192.0.105.0/24 192.0.106.0/24 192.0.107.0/24 192.0.108.0/24 192.0.109.0/24 192.0.110.0/24 192.0.111.0/24 192.0.112.0/24 192.0.113.0/24 192.0.114.0/24 192.0.115.0/24 192.0.116.0/24 192.0.117.0/24 192.0.118.0/24 192.0.119.0/24 192.0.120.0/24 192.0.121.0/24 192.0.122.0/24 192.0.123.0/24 192.0.124.0/24 192.0.125.0/24 192.0.126.0/24 192.0.127.0/24})</p>
+	</div>
+
+	<p class="text-2xl font-light mb-2 w-auto text-justify pr-4 pt-4">Using these two basic rules we can block the most common brute force and automated threats the WordPress faces.</p>
+
+
+
+
+
+<div class="flex flex-wrap items-center border-t border-b border-gray-500 mt-10 p-4">
+	<svg width="38" height="36" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z" />
+</svg>
+	<h4 class="text-3xl font-regular mb-2 pt-2"><span></span>WORDPRESS, TUTORIALS</h4>
+</div>
+
+
+
+
+
+
+
+	<main class="py-4">
+		<h3 class="text-3xl font-medium mb-2 pt-4">Related Articles</h3>
+  <div class="px-2 pt-4">
+    <div class="block md:flex justify-between md:-mx-2 h-auto">
+      <div class="w-full lg:w-1/3 md:mx-2 mb-4 md:mb-0">
+        <div class="bg-white rounded-lg overflow-hidden shadow relative">
+          <img class="inline" src="images/wordpress_n_cloudflare.png" alt="feature image">
+          <div class="p-4 h-auto md:h-44 lg:h-50">
+            <a href="#" class="block text-brandcolor hover:text-headercolor font-semibold mb-2 text-lg md:text-base lg:text-lg">
+              Woman standing under blue sky
+            </a>
+            <div class="text-gray-600 text-sm leading-relaxed block md:text-xs lg:text-sm">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quidem blanditiis unde asperiores? Officia amet perspiciatis ad quibusdam incidunt eaque, nobis, eveniet neque porro id commodi quisquam debitis!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full lg:w-1/3 md:mx-2 mb-4 md:mb-0 h-auto">
+        <div class="bg-white rounded-lg overflow-hidden shadow relative">
+          <img class="inline" src="images/wordpress_n_cloudflare.png" alt="feature image">
+          <div class="p-4 h-auto md:h-44 lg:h-50">
+            <a href="#" class="block text-brandcolor hover:text-headercolor font-semibold mb-2 text-lg md:text-base lg:text-lg">
+              Woman walking on pathway
+            </a>
+            <div class="text-gray-600 text-sm leading-relaxed block md:text-xs lg:text-sm">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure aut quia alias ullam eveniet sunt! Ipsa, sunt. Inventore ipsum sit quasi. Alias quasi officiis blanditiis!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full lg:w-1/3 md:mx-2 mb-4 md:mb-0 h-auto">
+        <div class="bg-white rounded-lg overflow-hidden shadow relative">
+          <img class="inline" src="images/wordpress_n_cloudflare.png" alt="feature image">
+          <div class="p-4 h-auto md:h-44 lg:h-50">
+            <a href="#" class="block text-brandcolor hover:text-headercolor font-semibold mb-2 text-lg md:text-base lg:text-lg">
+              Walking through a forest in the afternoon
+            </a>
+            <div class="text-gray-600 text-sm leading-relaxed block md:text-xs lg:text-sm">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi nemo magni saepe cumque error quia quae sint ducimus, maiores doloremque.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+
+			<form action="" class="form p-6 my-10 relative pt-10 bg-white hover:shadow-xl shadow-md">
+               
+                <h3 class="text-2xl text-gray-900 font-semibold">Leave a Reply</h3>
+                <p class="text-gray-600">Your email address will not be published. Required fields are marked *</p>
+                <textarea name="" id="" cols="10" rows="3" placeholder="Your Comment" class="border p-2 mt-3 w-full"></textarea>
+                <div class="flex space-x-5 mt-3">
+                    <input type="text" name="" id="" placeholder="Your Name" class="border p-2  w-1/2">
+                    <input type="email" name="" id="" placeholder="Your Email" class="border p-2 w-1/2">
+                </div>
+                
+                <input type="text" name="" id="" placeholder="Your Website" class="border p-2 w-full mt-3">
+                <div class="flex items-baseline space-x-2 mt-2">
+                    <input type="checkbox" name="" id="" class="inline-block">
+                    <p class="text-gray-600 text-sm">Save my name, email, and website in this browser for the next time I comment.</p>
+                </div>
+                <input type="submit" value="Post Comment" class="w-auto lg:w-2/6 mt-6 bg-brandcolor hover:bg-headercolor text-white font-semibold p-3">
+
+            </form>
+
+
+<div class="row">
+	<div class="w-full mx-auto">
+		<div class="sm:grid grid-cols-4 gap-5 mx-auto px-4">
+			<div class="col-start-0 col-end-1 my-2 object-left">
+				<a href="#">
+					<div
+						class="h-auto p-4 dark:bg-gray-800 bg-white hover:shadow-xl rounded border-b-4 border-brandcolor hover:border-headercolor shadow-md">
+						<h3 class="text-2xl mb-3 font-semibold inline-flex">
+							<svg class="mr-2" width="24" height="30" viewBox="0 0 24 24" fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M1.02698 11.9929L5.26242 16.2426L6.67902 14.8308L4.85766 13.0033L22.9731 13.0012L22.9728 11.0012L4.85309 11.0033L6.6886 9.17398L5.27677 7.75739L1.02698 11.9929Z"
+									fill="currentColor" /></svg>
+							Prev
+						</h3>
+						
+					</div>
+				</a>
+			</div>
+			<div class="col-end-8 col-span-3 my-2 object-right">
+				<a href="#">
+					<div
+						class="h-auto p-4 dark:bg-gray-800 bg-white hover:shadow-xl rounded border-b-4 border-brandcolor hover:border-headercolor shadow-md text-right">
+						<h3 class="text-2xl mb-3 font-semibold inline-flex ">
+							Next
+							<svg class="ml-2" width="24" height="30" viewBox="0 0 24 24" fill="none"
+								xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M23.0677 11.9929L18.818 7.75739L17.4061 9.17398L19.2415 11.0032L0.932469 11.0012L0.932251 13.0012L19.2369 13.0032L17.4155 14.8308L18.8321 16.2426L23.0677 11.9929Z"
+									fill="currentColor" /></svg>
+						</h3>
+						
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+      
+
+
+
+
+    </div>
+    
+    <div class="mx-auto my-10 p-16 lg:p-10 w-screen lg:w-3/12 z-0">
+      <aside class="sticky top-40">
+     
+        <a href="#" class="my-3 block text-gray-900 text-md font-medium duration-700">
+            Table of Contents
+        </a>
+
+        <a href="#" class="my-1 block text-headercolor text-sm font-regular duration-700 hover:text-brandcolor">
+            Things To Look For In A WordPress Backup Plugin
+        </a>
+        <a href="#" class="my-1 block text-headercolor text-sm font-regular duration-700 hover:text-brandcolor">
+            10 Best WordPress Backup Plugins
+        </a>
+        <a href="#" class="my-1 block text-headercolor text-sm font-regular duration-700 hover:text-brandcolor">
+            #1. UpdraftPlus
+        </a>
+        <a href="#" class="my-1 block text-headercolor text-sm font-regular duration-700 hover:text-brandcolor">
+            #2. Duplicator
+        </a>
+        <a href="#" class="my-1 block text-headercolor text-sm font-regular duration-700 hover:text-brandcolor">
+            #3. WP Time Capsule
+        </a>
+        <a href="#" class="my-1 block text-headercolor text-sm font-regular duration-700 hover:text-brandcolor">
+            #4. BackWPUp
+        </a>
+        <a href="#" class="my-1 block text-headercolor text-sm font-regular duration-700 hover:text-brandcolor">
+            #5. WP Database Backup
+        </a>
+        <a href="#" class="my-1 block text-headercolor text-sm font-regular duration-700 hover:text-brandcolor">
+            #6. BackupBuddy
+        </a>
+        <a href="#" class="my-1 block text-headercolor text-sm font-regular duration-700 hover:text-brandcolor">
+            Some More Best WordPress Backup Plugins For You
+        </a>
+        <a href="#" class="my-1 block text-headercolor text-sm font-regular duration-700 hover:text-brandcolor">
+            Conclusion
+        </a>
+        <a href="#" class="my-1 block text-headercolor text-sm font-regular duration-700 hover:text-brandcolor">
+            FAQs (Frequently Asked Questions)
+        </a>
+
+        <a href="#">
+            <img class="inline w-3/6 lg:w-3/6 xl:w-4/6 xl:pt-4 pt-2" src="images/sidebar img.png" alt="plans and features">
+        </a>
+
+	</aside>
+    </div>
+  </div>
+
+
+<footer class="bg-footercolor pt-10 sm:mt-10">
+    <div class="w-auto xl:w-10/12 lg:w-9/12 m-auto text-gray-800 flex flex-wrap justify-left">
+        <!-- Col-1 -->
+        <div class="p-5 w-1/2 sm:w-4/12 md:w-2/12">
+            <!-- Col Title -->
+            <div class="text-lg uppercase text-white font-medium mb-6">
+                Browse Page
+            </div>
+
+            <!-- Links -->
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                Plans & Features
+            </a>
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                Blog
+            </a>
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                Tutorials
+            </a>
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                Free Themes
+            </a>
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                Privacy Policy
+            </a>
+        </div>
+
+         <div class="p-4 pt-16 w-1/2 sm:w-4/12 md:w-2/12">
+            <!-- Col Title -->
+
+            <!-- Links -->
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                Take a Tour
+            </a>
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                Knowledge Base
+            </a>
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                Affiliates
+            </a>
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                Refund Policy
+            </a>
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                Terms & Conditions
+            </a>
+        </div>
+
+        <!-- Col-2 -->
+        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
+            <!-- Col Title -->
+            <div class="text-lg uppercase text-white font-medium mb-6">
+                Compare Us
+            </div>
+
+            <!-- Links -->
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                WPOven vs WPEngine
+            </a>
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                WPOven vs Kinsta
+            </a>
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                WPOven vs Cloudways
+            </a>
+        </div>
+
+        <!-- Col-3 -->
+        <div class="p-5 w-1/2 sm:w-4/12 md:w-2/12">
+            <!-- Col Title -->
+            <div class="text-lg uppercase text-white font-medium mb-6">
+                Help
+            </div>
+
+            <!-- Links -->
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                Contact Us
+            </a>
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                Login
+            </a>
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                Signup
+            </a>
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                Knowledge Base
+            </a>
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                Tutorials
+            </a>
+        </div>
+
+        <!-- Col-3 -->
+        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
+            <!-- Col Title -->
+            <div class="text-lg uppercase text-white font-medium mb-6">
+                Recent Post
+            </div>
+
+            <!-- Links -->
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                Best WordPress Cloudflare plugin settings for faster sites
+            </a>
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                12 Best WordPress Table Plugins Compared To Choose [2021]
+            </a>
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                11 Best WordPress SEO Plugins To Boost Organic Traffic 2021
+            </a>
+            <a href="#" class="my-3 block text-white text-md font-regular duration-700">
+                9 Honest Reasons to Choose Managed WordPress Hosting 2021
+            </a>
+        </div>
+    </div>
+
+     <!-- Copyright Bar -->
+    <div class="max-w-screen m-auto bg-branddark">
+        <div class="flex pb-5 px-3 m-auto pt-5 text-white">
+               <p class="text-center text-md w-screen">Copyright © 2021 WPOven</p>    
+        </div>
+    </div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
